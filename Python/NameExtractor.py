@@ -1,11 +1,18 @@
-from random import randrange
+from random import randrange, sample
 
-names = open("names.txt", "r")
+names = open("../names.txt", "r")
 
 list = names.readlines()
 
 try:
-    print(list)
-    print(list[randrange(len(list))])
+    extraction = sample(list, len(list))
+
+    print("Press enter to extract itmes one by one.")
+
+    for name in extraction:
+        input()
+        print(name)
+
+    print("Every item has been extracted.")
 except ValueError:
     print("The name list is empty. Populate it before running the extraction.")
